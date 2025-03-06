@@ -1,48 +1,59 @@
-public class Stack1 {
-	private char stackArray[];
-	private int maxSize;
-	private int top;
+public class Stack1
+{
+    private char[] stackArray;
+    private int maxSize;
+    private int top;
 
-	public boolean isFull() { // return True if stack is full, if not false
-		if (top == maxSize - 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    public Stack1(int size) // Constructor to initialize the stack
+    {
+        maxSize = size;
+        stackArray = new char[maxSize];
+        top = -1;
+    }
 
-	public void push(char ch) {
-		if (isFull()) {
-			System.out.println("Stack is full");
-		} else {
-			top++;
-			stackArray[top] = ch;
-		}
-	}
+    public bool IsFull() // Return True if stack is full, else false
+    {
+        return top == maxSize - 1;
+    }
 
-	public boolean isEmpty() {
-		// return True if stack is Empty,if not false
-		if (top == -1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    public void Push(char ch)
+    {
+        if (IsFull())
+        {
+            Console.WriteLine("Stack is full");
+        }
+        else
+        {
+            stackArray[++top] = ch;
+        }
+    }
 
-	public char pop() {
-		if (isEmpty()) {
-			return '*';
-		} else {
-			return stackArray[top--];
-		}
-	}
+    public bool IsEmpty() // Return True if stack is empty, else false
+    {
+        return top == -1;
+    }
 
-	public char peek() {
-		if (isEmpty()) {
-			return '*';
-		} else {
-			return stackArray[top];
-		}
+    public char Pop()
+    {
+        if (IsEmpty())
+        {
+            return '*'; // Return '*' to indicate empty stack
+        }
+        else
+        {
+            return stackArray[top--];
+        }
+    }
 
-	}
+    public char Peek()
+    {
+        if (IsEmpty())
+        {
+            return '*'; // Return '*' to indicate empty stack
+        }
+        else
+        {
+            return stackArray[top];
+        }
+    }
 }
